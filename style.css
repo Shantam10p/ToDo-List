@@ -1,0 +1,285 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #4299e1;
+  --primary-hover: #3182ce;
+  --danger-color: #fc8181;
+  --danger-hover: #f56565;
+  --text-primary: #2d3748;
+  --text-secondary: #4a5568;
+  --border-color: #e2e8f0;
+  --background-primary: #ffffff;
+  --background-secondary: #f7fafc;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --border-radius: 8px;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --input-height: 48px;
+}
+
+body {
+  font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e0e8ff 0%, #f5f7fa 100%);
+  color: var(--text-primary);
+  line-height: 1.5;
+  padding: var(--spacing-md);
+}
+
+/* App Container */
+.app-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+}
+
+/* Header Styles */
+.app-header {
+  margin-bottom: var(--spacing-lg);
+  text-align: center;
+}
+
+.app-title {
+  color: var(--text-primary);
+  font-weight: 600;
+  background: var(--background-primary);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  display: inline-block;
+}
+
+/* Form Styles */
+.todo-form {
+  background: var(--background-primary);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.input-group {
+  position: relative;
+}
+
+.todo-input,
+.date-input {
+  width: 100%;
+  height: var(--input-height);
+  padding: 0 var(--spacing-md);
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  background: var(--background-primary);
+}
+
+.todo-input:focus,
+.date-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.15);
+}
+
+/* Date Input Specific Styles */
+.date-group {
+  position: relative;
+}
+
+.date-group::after {
+  content: "📅";
+  position: absolute;
+  right: var(--spacing-md);
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  font-size: 1.2rem;
+}
+
+.date-input {
+  padding-right: calc(var(--spacing-md) * 2 + 1.2rem); /* Space for calendar emoji */
+}
+
+.date-label {
+  position: absolute;
+  top: 0;
+  left: var(--spacing-md);
+  transform: translateY(-50%);
+  background: var(--background-primary);
+  padding: 0 var(--spacing-sm);
+  color: var(--primary-color);
+  font-size: 0.75rem;
+  pointer-events: none;
+}
+
+/* Button Styles */
+.add-button {
+  height: var(--input-height);
+  padding: 0 var(--spacing-lg);
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.add-button:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+.add-button:active {
+  transform: translateY(0);
+}
+
+/* Todo List Styles */
+.todo-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.todo-item {
+  background: var(--background-primary);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.todo-item:hover {
+  transform: translateX(2px);
+  box-shadow: var(--shadow-md);
+}
+
+.todo-content {
+  flex: 1;
+  margin-right: var(--spacing-md);
+}
+
+.todo-name {
+  font-weight: 500;
+  margin-bottom: var(--spacing-sm);
+}
+
+.todo-date {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.todo-date::before {
+  content: "📅";
+  font-size: 1rem;
+}
+
+.delete-button {
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--danger-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 80px;
+}
+
+.delete-button:hover {
+  background: var(--danger-hover);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .app-container {
+      padding: var(--spacing-md);
+  }
+
+  .todo-form {
+      grid-template-columns: 1fr;
+      padding: var(--spacing-md);
+      gap: var(--spacing-md);
+  }
+
+  .input-group,
+  .date-group {
+      width: 100%;
+  }
+
+  .todo-input,
+  .date-input {
+      width: 100%;
+      font-size: 16px; /* Prevents iOS zoom on focus */
+  }
+
+  .add-button {
+      width: 100%;
+      height: var(--input-height);
+  }
+
+  .todo-item {
+      padding: var(--spacing-md);
+  }
+
+  /* Improved mobile todo item layout */
+  .todo-item {
+      flex-direction: column;
+      gap: var(--spacing-md);
+  }
+
+  .todo-content {
+      width: 100%;
+      margin-right: 0;
+  }
+
+  .todo-name {
+      font-size: 1.1rem;
+      margin-bottom: var(--spacing-sm);
+  }
+
+  .delete-button {
+      width: 100%;
+      padding: var(--spacing-md);
+  }
+  .app-title {
+    font-size: clamp(1.5rem, 5vw, 2.5rem)
+  }
+}
+
+/* iOS Specific Date Input Styles */
+@supports (-webkit-touch-callout: none) {
+  .date-input {
+      min-height: var(--input-height);
+      -webkit-appearance: none;
+      background-color: var(--background-primary);
+  }
+}
+
+/* Hide default date picker icon in Chrome */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
