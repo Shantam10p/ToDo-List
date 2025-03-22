@@ -16,3 +16,6 @@ A simple, responsive todo list app that allows users to add, manage, and delete 
 1. Open `index.html` in a browser.
 2. Enter a task and select a due date.
 3. Click **"Add Task"** to save it.
+
+## Preview 
+![image](https://github.com/user-attachments/assets/f7653940-b364-46aa-a75a-987ca65a88ba)
