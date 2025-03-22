@@ -227,7 +227,7 @@ body {
   .todo-input,
   .date-input {
       width: 100%;
-      font-size: 16px; /* Prevents iOS zoom on focus */
+      font-size: 16px; 
   }
 
   .add-button {
@@ -239,7 +239,7 @@ body {
       padding: var(--spacing-md);
   }
 
-  /* Improved mobile todo item layout */
+  
   .todo-item {
       flex-direction: column;
       gap: var(--spacing-md);
@@ -264,7 +264,7 @@ body {
   }
 }
 
-/* iOS Specific Date Input Styles */
+
 @supports (-webkit-touch-callout: none) {
   .date-input {
       min-height: var(--input-height);
